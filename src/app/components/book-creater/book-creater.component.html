@@ -1,59 +1,64 @@
-<div class="pt-5 w-full col-offset-5 ">
-<p-card header="Создание книги" class="flex gap-2 w-full "  >
-    <div class="flex justify-items-center gap-4 flex-column " >
-        <p-floatLabel>
-            <input pInputText id="title" [(ngModel)]=" newTitle" />
-            <label for="title">Введите название</label>
-        </p-floatLabel>
+<div *ngIf="isFormVisible">
+    <div class="fixed h-screen w-full" style="z-index: 2;">
+    <p-card header="Создание книги" class="flex justify-content-center align-content-center" [style]="{background: 'f5f5f5'}">
+        <div class="flex justify-items-center gap-4 flex-column relative ">
+            <p-floatLabel>
+                <input pInputText id="title" [(ngModel)]="newTitle" [style]="{ minWidth: '25rem' }"/>
+                <label for="title">Введите название</label>
+            </p-floatLabel>
 
-        <div class="card flex justify-content-center ">
-            <p-cascadeSelect 
-                [(ngModel)]="selectedAuthor" 
-                [options]="bookAuthors" 
-                optionLabel=""
-                optionGroupLabel="" 
-                [optionGroupChildren]="['']" 
-                [style]="{ minWidth: '14rem' }" 
-                placeholder="Выберите автора" />
+            <div class="card flex justify-content-center">
+                <p-cascadeSelect
+                    [(ngModel)]="selectedAuthor"
+                    [options]="bookAuthors"
+                    optionLabel=""
+                    optionGroupLabel=""
+                    [optionGroupChildren]="['']"
+                    [style]="{ minWidth: '25rem' }"
+                    placeholder="Выберите автора" />
+            </div>
+
+            <p-floatLabel>
+                <textarea
+                    id="description"
+                    rows="5" cols="25"
+                    [(ngModel)]="description"
+                    [autoResize]="true"
+                    [style]="{ minWidth: '25rem' }"
+                    pInputTextarea>
+                </textarea>
+                <label for="description">Введите описание</label>
+            </p-floatLabel>
+
+            <p-inputNumber
+                inputId="integeronly"
+                [(ngModel)]="pages"
+                [style]="{ minWidth: '25rem' }" />
+
+            <div class="card flex justify-content-center">
+                <p-cascadeSelect
+                    [(ngModel)]="selectedLanguage"
+                    [options]="bookLanguage"
+                    optionLabel=""
+                    optionGroupLabel=""
+                    [optionGroupChildren]="['']"
+                    [style]="{ minWidth: '25rem' }"
+                    placeholder="Выберите язык" />
+            </div>
+
+            <p-floatLabel>
+                <input pInputText id="genre" [(ngModel)]="genre" [style]="{ minWidth: '25rem' }" />
+                <label for="genre">Введите жанр</label>
+            </p-floatLabel>
         </div>
+        <ng-template pTemplate="footer">
+            <div class="flex gap-3 mt-1 flex justify-content-center">
+                <p-button label="сохранить" (click)="SaveBook()"/>
+                <p-button label="сбросить" (click)="toggleFormVisibility()" severity="danger"/>
+            </div>
+        </ng-template>
+    </p-card>
+</div>
 
-        <p-floatLabel>
-            <textarea 
-                id="description" 
-                rows="5" cols="25" 
-                [(ngModel)]="description"
-                [autoResize]="true"
-                pInputTextarea>
-            </textarea>
-            <label for="description">Введите описание</label>
-        </p-floatLabel>
-
-        <p-inputNumber 
-            inputId="integeronly" 
-            [(ngModel)]="pages" /> 
-
-        <div class="card flex justify-content-center">
-            <p-cascadeSelect 
-                [(ngModel)]="selectedLanguage" 
-                [options]=" bookLanguage" 
-                optionLabel=""
-                optionGroupLabel="" 
-                [optionGroupChildren]="['']" 
-                [style]="{ minWidth: '14rem' }" 
-                placeholder="Выберите язык" />
-        </div>
-
-        <p-floatLabel>
-            <input pInputText id="genre" [(ngModel)]="genre" />
-            <label for="genre">Введите жанр</label>
-        </p-floatLabel>
-    </div>
-    <ng-template pTemplate="footer">
-        <div class="flex gap-3 mt-1">
-            <p-button label="сохранить" (click)="vievConsol()"/>
-            <p-button label="сбросить" (click)="vievConsol()"/>
-        </div>
-    </ng-template>
-    
-</p-card>
+<div class="fixed w-full h-screen top-0" style="background: rgba(0, 0, 0, 0.9); z-index: 1;"></div>
 </div>

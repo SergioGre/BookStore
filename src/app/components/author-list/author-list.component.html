@@ -1,0 +1,18 @@
+<div class="gap-3 flex flex-column">
+    <div class="gap-3 flex flex-column pt-4" >
+        <p-floatLabel class="col-8 col-offset-6">
+            <input pInputText id="author" [(ngModel)]="author" [style]="{ minWidth: '25rem' }"/> 
+            <p-button label="Добавить" (click)="Add()" class="ml-2"/>
+            <label for="author">Введите автора</label>
+        </p-floatLabel>
+        
+    </div>
+
+    <div class="grid gap-2 border-round-xl col-8 col-offset-2 pb-3 pt-3" [style]="{background: 'var(--blue-300)'}">
+        
+        
+        <div *ngFor="let author of authorsCopy; let i = index" > 
+            <p-chip label= {{author}} />
+        </div>
+    </div>
+</div>

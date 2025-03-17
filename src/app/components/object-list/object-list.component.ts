@@ -9,8 +9,8 @@ import { Book } from '../../model/book.model';
   selector: 'app-object-list',
   standalone: true,
   imports: [CommonModule, CardModule, PanelModule],
-  templateUrl: './object-list.component.html',
-  styleUrls: ['./object-list.component.css'] 
+  templateUrl: './object-list.component.html'
+  
 })
 export class ObjectListComponent {
   books: Book[] = bookList;
@@ -18,7 +18,7 @@ export class ObjectListComponent {
 
   constructor() {
     
-    this.openCards = Array(this.books.length).fill(false);
+    this.openCards = Array(this.books.length).fill(false); //На данном этапе моё приложение не является клиент/серверным. Поэтому массив книг определен заранее.
   }
 
   toggleCard(index: number): void {
