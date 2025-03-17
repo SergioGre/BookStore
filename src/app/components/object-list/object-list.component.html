@@ -1,0 +1,34 @@
+<p>object-list works!</p>
+
+<div class="flex-column border-round-xl col-8 col-offset-2 pb-8 pt-8" 
+     [style]="{background: 'var(--blue-300)'}">
+
+  <div *ngFor="let book of books; let i = index"> 
+    <div class="col-10 col-offset-1 cursor-pointer" >
+    <p-card class="gap-2 " header="{{book.title}}" [style]="{ overflow: 'hidden', background: '#ffffff'}" (click)="toggleCard(i)"
+    >
+      {{book.author}} | Жанр: {{book.genre}} | {{book.pages}} страниц
+    </p-card>
+    </div>
+
+    <div class=" flex justify-content-center col-8 col-offset-2 pb-8 pt-8" *ngIf="openCards[i]"> 
+      <p-card 
+      class=" col-10 col-offset-1"
+        header="{{book.title}}" 
+        subheader="{{book.author}}" 
+        [style]="{  }">
+        
+        <p class="m-0">
+          {{book.description}}
+        </p>
+        <ng-template pTemplate="footer">
+          <div class="flex gap-3 mt-1">
+            Жанр: {{book.genre}} <br>
+            {{book.pages}} страниц
+          </div>
+        </ng-template>
+      </p-card>
+    </div>
+  </div>
+</div>
+  
