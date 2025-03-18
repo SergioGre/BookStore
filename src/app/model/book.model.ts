@@ -76,3 +76,13 @@ export interface Book {
         genre: "Приключения"
     }
 ];
+
+let _sortBookList: any[] = bookList;
+export const sortBookList = () => _sortBookList;;
+export const setSortBookList = (books: any[]) => {
+  _sortBookList = books;};
+
+  let _sortchange: boolean = false;
+  export const getChange = () => _sortchange; 
+  export const setSortChange = (bool: boolean) => {
+    _sortchange = bool;}; 

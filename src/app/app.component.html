@@ -1,4 +1,17 @@
-<app-book-creater></app-book-creater>
-<app-buttdem></app-buttdem>
-<app-object-list></app-object-list>
+<div class=butt-bar>
+<p-button label="Список книг" (click)="toggleComponents('bookList')"/>
+<p-button label="Список авторов" (click)="toggleComponents('authorList')"/>
+<ng-container *ngIf="currentComponent === 'bookList'">
+<app-buttdem></app-buttdem></ng-container>
+</div>
+
+<ng-container *ngIf="currentComponent === 'bookList' || change === true">
+    <app-filter-menu></app-filter-menu>
+    <app-book-creater></app-book-creater>
+    
+    <app-object-list></app-object-list>
+</ng-container>
+
+<ng-container *ngIf="currentComponent === 'authorList'">
 <app-author-list></app-author-list>
+</ng-container>

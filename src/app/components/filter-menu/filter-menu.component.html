@@ -1,0 +1,31 @@
+<div>
+    <p-cascadeSelect
+                    [(ngModel)]="selectedLanguage"
+                    [options]="bookLanguage"
+                    optionLabel=""
+                    optionGroupLabel=""
+                    [optionGroupChildren]="['']"
+                    [style]="{ minWidth: '25rem' }"
+                    placeholder="Книга по языку" />
+    <p-cascadeSelect
+                    [(ngModel)]="selectedAuthor"
+                    [options]="bookAuthors"
+                    optionLabel=""
+                    optionGroupLabel=""
+                    [optionGroupChildren]="['']"
+                    [style]="{ minWidth: '25rem' }"
+                    placeholder="Книга по автору" />
+    <p-cascadeSelect
+                    [(ngModel)]="selectGenre"
+                    [options]="uniqueGenres"
+                    optionLabel=""
+                    optionGroupLabel=""
+                    [optionGroupChildren]="['']"
+                    [style]="{ minWidth: '25rem' }"
+                    placeholder="Книга по жанру" />
+    <div>
+        <p-button label="Применить фильтр" (click)="FiltrSort()"/>
+        <p-button label="Сбросить фильтры" (click)="DeleteFiltr()" severity="danger"/>
+    </div>
+    
+</div>

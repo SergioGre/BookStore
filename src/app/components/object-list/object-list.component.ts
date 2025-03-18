@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CardModule } from 'primeng/card';
 import { PanelModule } from 'primeng/panel';
-import { bookList } from '../../model/book.model';
+import { sortBookList } from '../../model/book.model';
 import { Book } from '../../model/book.model';
 
 @Component({
@@ -13,7 +13,7 @@ import { Book } from '../../model/book.model';
   
 })
 export class ObjectListComponent {
-  books: Book[] = bookList;
+  books: Book[] = sortBookList();
   openCards: boolean[] = []; 
 
   constructor() {
