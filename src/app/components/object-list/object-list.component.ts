@@ -5,6 +5,7 @@ import { PanelModule } from 'primeng/panel';
 import { sortBookList } from '../../model/book.model';
 import { Book } from '../../model/book.model';
 
+
 @Component({
   selector: 'app-object-list',
   standalone: true,
@@ -12,9 +13,13 @@ import { Book } from '../../model/book.model';
   templateUrl: './object-list.component.html'
   
 })
+
+
 export class ObjectListComponent {
   books: Book[] = sortBookList();
   openCards: boolean[] = []; 
+  
+  
 
   constructor() {
     
